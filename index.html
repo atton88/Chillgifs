@@ -25,33 +25,54 @@ index.html
     
 
     <header class="">
-        <h1 class="bg-dark shadow">Cinemagraph Search         <i class="fas fa-caret-square-down"></i>
-        </h1>
-
-
-    </header>
-    
-    <div class="content">
-
-        <div class="row main">
-            <div class="col-md-8 border">
-                <!-- Gifs will Get Dumped Here -->
-                <div id="gif-view"></div>
+        <div class="row">
+            <div class="col-md-6 pr-0">
+                <h1 class="bg-dark shadow">Cinemagraph Search</h1>
             </div>
-            <div class="col-md-4 bg-dark rounded shadow">
-                <form id="gif-form" class="mb-2 mt-3">
-                <label for="gif-input" class="mr-1 pr-1 pl-1 border-bottom rounded">Add a Tag:</label>
-                <input type="text" id="tag-input" class="bg-secondary text-light">
+            <div class="col-md-6 bg-dark" id="search">
+
+                <!-- form for input -->
+                <form id="gif-form" class="mb-1 mt-2">
+                    <label for="gif-input" class="mr-1 pr-1 pl-1 border-bottom rounded">Add a Tag:</label>
+                    <input type="text" id="tag-input" class="bg-secondary text-light">
                 
-            
-                <!-- Button triggers new tags to be added -->
-                <input id="add-tag" type="submit" value="Add" class="text-info bg-dark rounded">
-                <button id="clearBtn" type="button" class="text-info bg-dark rounded">Clear</button>
-                <hr class="bg-info">
+                    <!-- Button triggers new tags to be added -->
+                    <input id="add-tag" type="submit" value="Add" class="text-info bg-dark rounded">
+
+                    <!-- icon button with collapse menu -->
+                    <button class="btn btn-info bg-dark border-light text-info" type="button" data-toggle="collapse" data-target="#collapse">                    
+                        <i class="fas fa-caret-square-down"></i>
+                    </button>
+                    <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="collapse multi-collapse" id="collapse">
+                                <div class="card card-body bg-dark border-light shadow">
+                                        <!-- Rendered Buttons will get Dumped Here  -->
+                                        <div id="buttons-view"></div>
+                                    </div>
+                              </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                          </div>
+
+                    <!-- <button id="clearBtn" type="button" class="text-info bg-dark rounded">Clear</button> -->
+
                 </form>
 
-                <!-- Rendered Buttons will get Dumped Here  -->
-                <div id="buttons-view"></div>
+        
+            </div>
+        </div>
+    </header>
+    
+    <div id="content">
+
+
+                <!-- Gifs will Get Dumped Here -->
+                <div id="gif-view"></div>
+
+
             
 
 
