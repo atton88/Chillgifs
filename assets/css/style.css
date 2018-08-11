@@ -13,4 +13,43 @@ body {
     background-attachment: fixed;
     /* other backgrounds
     https://media.giphy.com/media/eGQ6rX4W1jbtm/giphy.gif */
+
+    font-family: 'Kaushan Script', cursive;
+    text-shadow: 1px 1px black;
+
+}
+
+.content {
+    /* position: relative; */
+    width: 100%;
+    padding-top: 68px;
+}
+
+
+
+input {
+    letter-spacing: 3px;
+    text-shadow: 1px 1px black;
+
+}
+header {
+    position:fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+h1 {
+    text-align: left;
+    padding-left: 100px;
+}
+
+iframe {
+    display: none;
+}
+
+
+.border-dark {
+    border-width:3px !important;
 }

@@ -1,4 +1,4 @@
-    <!-- 
+<!-- 
 Andrew Ton
 Assignment 6 - Gif Search
 index.html 
@@ -14,31 +14,55 @@ index.html
     <!-- Bootstrap, reset, and style CSS -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
     <title>The Chillest Gifs</title>
+    
   </head>
-  <body class="text-center bg-secondary text-info">
+  <body class="text-center bg-secondary text-info container-fluid">
     
 
-    <div class="">
-        <h1>Cinemagraph Search</h1>
+    <header class="">
+        <h1 class="bg-dark shadow">Cinemagraph Search         <i class="fas fa-caret-square-down"></i>
+        </h1>
+
+
+    </header>
     
-        <form id="gif-form">
-          <label for="gif-input">Add a Tag</label>
-          <input type="text" id="tag-input">
-          <br>
-    
-          <!-- Button triggers new tags to be added -->
-          <input id="add-tag" type="submit" value="Add a Tag">
-        </form>
-        <!-- Rendered Buttons will get Dumped Here  -->
-        <div id="buttons-view"></div>
-    
-        <!-- Gifs will Get Dumped Dere -->
-        <div id="gif-view"></div>
+    <div class="content">
+
+        <div class="row main">
+            <div class="col-md-8 border">
+                <!-- Gifs will Get Dumped Here -->
+                <div id="gif-view"></div>
+            </div>
+            <div class="col-md-4 bg-dark rounded shadow">
+                <form id="gif-form" class="mb-2 mt-3">
+                <label for="gif-input" class="mr-1 pr-1 pl-1 border-bottom rounded">Add a Tag:</label>
+                <input type="text" id="tag-input" class="bg-secondary text-light">
+                
+            
+                <!-- Button triggers new tags to be added -->
+                <input id="add-tag" type="submit" value="Add" class="text-info bg-dark rounded">
+                <button id="clearBtn" type="button" class="text-info bg-dark rounded">Clear</button>
+                <hr class="bg-info">
+                </form>
+
+                <!-- Rendered Buttons will get Dumped Here  -->
+                <div id="buttons-view"></div>
+            
+
+
+            </div>
+        </div>        
 
     
 
+        <div id="music">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ytJb-xDl69U?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
