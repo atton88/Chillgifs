@@ -1,0 +1,16 @@
+/* 
+Andrew Ton
+Assignment 6 - Gif Search
+style.css  
+*/
+
+body {
+    /* background-image: url("https://media.giphy.com/media/eGQ6rX4W1jbtm/giphy.gif"); */
+    background-image: url("../images/bg1.gif");
+    /* background-image: url("../images/bg2.gif"); */
+    background-repeat: no-repeat;   
+    background-size: 100%;
+    background-attachment: fixed;
+    /* other backgrounds
+    https://media.giphy.com/media/eGQ6rX4W1jbtm/giphy.gif */
+}
