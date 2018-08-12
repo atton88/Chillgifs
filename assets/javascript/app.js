@@ -31,7 +31,7 @@ $(document).ready(function() {
             // Then dynamicaly generating buttons for each search tag in the array
             var newButton = $("<button>");
             // Adding a class of movie-btn to our button
-            newButton.addClass("gif-btn shadow mr-1 mb-2 rounded border border-light text-info bg-dark");
+            newButton.addClass("gif-btn shadow mr-1 mb-2 rounded border border-light text-info bg-dark hvr-grow");
             newButton.css("text-shadow", "1px 1px black");
             // Adding a data-attribute, if statement to skip value add for 'cinemagraph' button since the string of cinemagraph will be appended later
             if (i != 0) { 
@@ -136,21 +136,24 @@ $(document).ready(function() {
                  }
     );
 
+    // changes music on click
     $("#music-view").on("click", ".musicBtn", function(){   
         event.preventDefault();
         console.log($(this));
         $("#music").empty();
         $("#music").append($(this).val());
         
-        // change music icons
-        for (var i = 1; i < 4; i++) {
+        // change color and active states of music icons
+        for (var i=1; i < 4; i++) {
+            $("#mbtn"+i).attr("class", "musicBtn btn btn-dark hvr-grow");
+            $("#icon"+i).attr("class", "far fa-play-circle fa-2x text-secondary");
             if (parseInt(this.id.charAt(4)) === i) {
-                $("#icon"+i).attr("class", "fas fa-play-circle fa-lg mt-1");
-            }
-            else {
-                $("#icon"+i).attr("class", "far fa-play-circle fa-lg mt-1");
-            }
+                $("#icon"+i).attr("class", "fas fa-play-circle fa-2x text-info");
+            }  
         }
+
+        $(this).addClass("active");
+
     })
 
     function changeMusic() {
@@ -162,8 +165,6 @@ $(document).ready(function() {
             {html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/LsBrT6vbQa8?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
             name: "LoFi Hip-Hop - Chillhop Music"}
         ]
-
-
     }
 
 
