@@ -53,7 +53,7 @@ $(document).ready(function() {
         $("#tag-input").val(""); // clear search
     })
 
-    // on-click of button
+    // on-click of add button
     $("#buttons-view").on("click", ".gif-btn", function(){   
         event.preventDefault();
         generateGifs($(this).val());
@@ -61,7 +61,8 @@ $(document).ready(function() {
 
     // on-click of page, close collapse window
     $("#content").on("click", function(){   
-        $('#collapse').collapse("hide");
+        $('#collapseButton').collapse("hide");
+        $('#collapseMusic').collapse("hide");
     })
 
     // clear the current gifs
@@ -69,37 +70,89 @@ $(document).ready(function() {
         $("#gif-view").empty();
     })
 
+    // Clicking title, clears gifs
+    $("h1").on("click", function() {
+        $("#gif-view").empty();
+    })
+
+    // enlarge picture on click and reduce pic on re-click
+    $("#content").on("click", ".gif", function(){
+        console.log(this);
+        if ($(this).attr("src") === $(this).attr("data-original")) {
+            $(this).attr("src", $(this).attr("data-small"));
+
+        } else {
+            $(this).attr("src", $(this).attr("data-original"));
+        }
+    })
+
     // pulls gifs with search parameter as argument
     function generateGifs(str) {
 
         var apiKey = "7WGHnvkB9WUox4GqyHbzvKyWt3EtvFbL";
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=api_key=dc6zaTOxFJmzC&api_key=" + apiKey + "&q=" + str + " cinemagraph";
+        
         console.log(queryURL);
+
         $.ajax({
             url: queryURL,
             method: "GET"
           }).then(function(response) {
-            // console.log(response); //test response object
+
             var resultsArray = response.data;
             console.log(resultsArray);
             
-            //clear current gifs
+            //clear current gifs and collapse menus
             $("#gif-view").empty();
+            $('#collapseButton').collapse("hide");
+            $('#collapseMusic').collapse("hide");
 
             /////////////////
             // Append Gifs //
             /////////////////
             for (var i = 0; i < resultsArray.length; i++) {
                 var tempDiv = $("<img>").attr("src", resultsArray[i].images.fixed_height.url);
+                tempDiv.attr("data-small", resultsArray[i].images.fixed_height.url);
                 tempDiv.attr("data-original", resultsArray[i].images.original.url);
                 tempDiv.attr("data-rating", resultsArray[i].rating);
                 tempDiv.attr("data-still", resultsArray[i].images.fixed_height_still.url)
-                tempDiv.addClass("mr-2 mb-2 rounded shadow border border-dark");
+                tempDiv.addClass("mr-2 mb-2 rounded shadow border border-dark gif");
                 $("#gif-view").append(tempDiv);
             }
           })
     }
     
+    // buttons open on hover
+    $(".collapseButtonMain").hover(
+        function() {
+            $('#collapseButton').collapse("show");
+                 }
+    );
+
+    // music opens on hover
+    $(".musicButtonMain").hover(
+        function() {
+            $('#collapseMusic').collapse("show");
+                 }
+    );
+
+    $("#music-view").on("click", ".musicBtn", function(){   
+        event.preventDefault();
+        console.log($(this));
+        $("#music").empty();
+        $("#music").append($(this).val());
+        
+        // change music icons
+        for (var i = 1; i < 4; i++) {
+            if (parseInt(this.id.charAt(4)) === i) {
+                $("#icon"+i).attr("class", "fas fa-play-circle fa-lg mt-1");
+            }
+            else {
+                $("#icon"+i).attr("class", "far fa-play-circle fa-lg mt-1");
+            }
+        }
+    })
+
     function changeMusic() {
         var musicList = [
             {html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/pBAw6DhIZoA?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
@@ -117,4 +170,6 @@ $(document).ready(function() {
 
 
 generateButtons();
+$('#collapseButton').collapse("show");
+
 });

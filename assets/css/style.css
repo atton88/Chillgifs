@@ -6,7 +6,7 @@ style.css
 
 body {
     /* background-image: url("https://media.giphy.com/media/eGQ6rX4W1jbtm/giphy.gif"); */
-    background-image: url("../images/bg1.gif");
+    background-image: url("../images/bg3.gif");
     /* background-image: url("../images/bg2.gif"); */
     background-repeat: no-repeat;   
     background-size: 100%;
@@ -20,9 +20,10 @@ body {
 }
 
 #content {
-    /* position: relative; */
     width: 100%;
     padding-top: 68px;
+    background-color: rgba(209, 212, 212, 0.144);
+    
 }
 
 #search {
@@ -45,13 +46,22 @@ header {
 h1 {
     text-align: left;
     padding-left: 100px;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
 }
 
 iframe {
     display: none;
 }
 
+#add-tag{
+    cursor: pointer;
+}
 
 .border-dark {
     border-width:3px !important;
 }
+

@@ -40,47 +40,54 @@ index.html
                     <input id="add-tag" type="submit" value="Add" class="text-info bg-dark rounded">
 
                     <!-- icon button with collapse menu -->
-                    <button class="btn btn-info bg-dark border-light text-info" type="button" data-toggle="collapse" data-target="#collapse">                    
+                    <button class="btn btn-info bg-dark border-light text-info collapseButtonMain" type="button" data-toggle="collapse" data-target="#collapseButton">                    
                         <i class="fas fa-caret-square-down"></i>
                     </button>
-                    <div class="row">
-                            <div class="col-md-2">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="collapse multi-collapse" id="collapse">
-                                <div class="card card-body bg-dark border-light shadow">
-                                        <!-- Rendered Buttons will get Dumped Here  -->
-                                        <div id="buttons-view"></div>
-                                    </div>
-                              </div>
-                            </div>
-                            <div class="col-md-2"></div>
-                          </div>
 
-                    <!-- <button id="clearBtn" type="button" class="text-info bg-dark rounded">Clear</button> -->
-
+                    <!-- music icon and collapse menu -->
+                    <button class="btn btn-info bg-dark border-light text-info musicButtonMain" type="button" data-toggle="collapse" data-target="#collapseMusic">                    
+                        <i class="fas fa-music"></i>
+                    </button>
                 </form>
 
-        
+                    <!-- collapse menus -->
+                    <!-- buttons menu -->
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 pr-0 mr-0">
+                            <div class="collapse multi-collapse" id="collapseButton">
+                                <div class="card card-body bg-dark border-light shadow">
+                                    <!-- Rendered Buttons will get Dumped Here  -->
+                                    <div id="buttons-view"></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- music menu -->
+                        <div class="col-md-2 pl-0 ml-0">
+                            <div class="collapse multi-collapse" id="collapseMusic">
+                                <div class="card card-body bg-dark border-light shadow m-0 pl-0 pr-0">
+                                    <div id="music-view">
+                                        <!-- Music buttons and icons -->
+                                        <button id="mbtn1" class="musicBtn bg-dark text-info border-light mb-2" value='<iframe width="560" height="315" src="https://www.youtube.com/embed/pBAw6DhIZoA?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'><i id="icon1" class="fas fa-play-circle fa-lg mt-1"></i></button>
+                                        <button id="mbtn2" class="musicBtn bg-dark text-info border-light mb-2" value='<iframe width="560" height="315" src="https://www.youtube.com/embed/ytJb-xDl69U?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'><i id="icon2" class="far fa-play-circle fa-lg mt-1"></i></button>
+                                        <button id="mbtn3" class="musicBtn bg-dark text-info border-light" value='<iframe width="560" height="315" src="https://www.youtube.com/embed/LsBrT6vbQa8?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'><i id="icon3" class="far fa-play-circle fa-lg mt-1"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </header>
     
     <div id="content">
-
-
                 <!-- Gifs will Get Dumped Here -->
                 <div id="gif-view"></div>
-
-
-            
-
-
             </div>
         </div>        
 
     
-
         <div id="music">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ytJb-xDl69U?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
