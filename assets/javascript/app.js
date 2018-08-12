@@ -31,7 +31,7 @@ $(document).ready(function() {
             // Then dynamicaly generating buttons for each search tag in the array
             var newButton = $("<button>");
             // Adding a class of movie-btn to our button
-            newButton.addClass("gif-btn shadow mr-1 mb-2 rounded border border-light text-info bg-dark hvr-grow");
+            newButton.addClass("gif-btn btn shadow mr-2 mb-2 rounded border border-light text-info bg-dark hvr-grow");
             newButton.css("text-shadow", "1px 1px black");
             // Adding a data-attribute, if statement to skip value add for 'cinemagraph' button since the string of cinemagraph will be appended later
             if (i != 0) { 
@@ -57,6 +57,7 @@ $(document).ready(function() {
     $("#buttons-view").on("click", ".gif-btn", function(){   
         event.preventDefault();
         generateGifs($(this).val());
+        $(this).attr("class", "gif-btn btn shadow mr-2 mb-2 rounded border border-light text-info bg-dark hvr-grow");
     })
 
     // on-click of page, close collapse window
