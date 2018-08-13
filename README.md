@@ -12,7 +12,9 @@ Created a psychic game where the user tries to guess a random letter in 9 guesse
 
 # Images
 
-![About Me](\assets\images\1.PNG)
+![About Me](\assets\images\capture1.PNG)
+![About Me](\assets\images\capture2.PNG)
+
 
 # technology used
 
@@ -21,51 +23,45 @@ Created a psychic game where the user tries to guess a random letter in 9 guesse
 - JavaScript
 - Bootstrap CDN
 - jQuery
+- Giphy API
+- Awesome Fonts (Icons)
+- Google Fonts (Fonts)
+- Hover.css (Button Animations)
 
 
 # code snippets
 
-Appending radio buttons was pretty crazy at first, but I ended up finding a way to make it readable and simple
+Getting the response from the API and using the results to add data to the gifs was a big task, but ended up being relatively simple
 ```
-for (j = 0; j < questions[i].z.length; j++) {
-    var tempInput = $("<input>"); //temp div to hold new div
-
-    // add attributes to input (radio, name, value)
-    tempInput.attr("type", "radio");
-    tempInput.attr("name", "radio"+i);  
-    tempInput.attr("data-answer", questions[i].z[j]);
-    
-    //append the tempDiv and text to form
-    tempForm.append(tempInput);
-    tempForm.append(tempInput.attr("data-answer"));
+for (var i = 0; i < resultsArray.length; i++) {
+    var tempDiv = $("<img>").attr("src", resultsArray[i].images.fixed_height.url);
+    tempDiv.attr("data-small", resultsArray[i].images.fixed_height.url);
+    tempDiv.attr("data-original", resultsArray[i].images.original.url);
+    tempDiv.attr("data-rating", resultsArray[i].rating);
+    tempDiv.attr("data-still", resultsArray[i].images.fixed_height_still.url);
+    tempDiv.attr("data-rating", resultsArray[i].rating);
+    tempDiv.addClass("mr-2 mb-2 rounded shadow border border-dark gif");
+    $("#gif-view").append(tempDiv);
 }
-    }
-});
 ```
-//check for correct and incorrect answers
-for (var i = 0; i < questions.length; i++) {
-    console.log($("input[name=radio"+i+"]:checked").attr("data-answer"));
-    console.log(questions[i].a);
-    if (questions[i].a === $("input[name=radio"+i+"]:checked").attr("data-answer")) {
-        correct++;
-    }
-    else if ($("input[name=radio"+i+"]:checked").attr("data-answer")){
-        incorrect++;
-    }
-    console.log($("input[name=radio"+i+"]:checked"));
-        }
 
-// clear appended elements
-$("#timerDiv").empty();
-$("#questions").empty();
-    }
+Small if statement to for enlarging the gif on click and back
+```
+if ($(this).attr("src") === $(this).attr("data-original")) {
+    $(this).attr("src", $(this).attr("data-small"));
+
+} else {
+    $(this).attr("src", $(this).attr("data-original"));
+}
 ```
 
 # Learning points
 - More learning with jQuery and attributes
-- Learned to append and add attributes more neatly
-- Learned to use radio buttons and get values from them
-- Learned to change the html entirely and build it back up in javascript
+- Learned to read API documentation
+- Learned to query API's and implement their return responses
+- More learning with dynamic html changes
+- Learned to use hover.css animations
+- Learned to use the Bootstrap collapse buttons and functions
 
 # Author 
 [Andrew Ton](https://github.com/atton88)

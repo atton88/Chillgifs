@@ -57,23 +57,7 @@ $(document).ready(function() {
     $("#buttons-view").on("click", ".gif-btn", function(){   
         event.preventDefault();
         generateGifs($(this).val());
-        $(this).attr("class", "gif-btn btn shadow mr-2 mb-2 rounded border border-light text-info bg-dark hvr-grow");
-    })
-
-    // on-click of page, close collapse window
-    $("#content").on("click", function(){   
-        $('#collapseButton').collapse("hide");
-        $('#collapseMusic').collapse("hide");
-    })
-
-    // clear the current gifs
-    $("#clearBtn").on("click", function() {
-        $("#gif-view").empty();
-    })
-
-    // Clicking title, clears gifs
-    $("h1").on("click", function() {
-        $("#gif-view").empty();
+        // $(this).attr("class", "gif-btn btn shadow mr-2 mb-2 rounded border border-light text-info bg-light hvr-grow");
     })
 
     // enlarge picture on click and reduce pic on re-click
@@ -91,8 +75,10 @@ $(document).ready(function() {
     function generateGifs(str) {
 
         var apiKey = "7WGHnvkB9WUox4GqyHbzvKyWt3EtvFbL";
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=api_key=dc6zaTOxFJmzC&api_key=" + apiKey + "&q=" + str + " cinemagraph";
-        
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=api_key=dc6zaTOxFJmzC&limit=10&api_key=" + apiKey + "&q=" + str + " cinemagraph";
+
+        // for remembering active search
+
         console.log(queryURL);
 
         $.ajax({
@@ -101,7 +87,6 @@ $(document).ready(function() {
           }).then(function(response) {
 
             var resultsArray = response.data;
-            console.log(resultsArray);
             
             //clear current gifs and collapse menus
             $("#gif-view").empty();
@@ -116,13 +101,34 @@ $(document).ready(function() {
                 tempDiv.attr("data-small", resultsArray[i].images.fixed_height.url);
                 tempDiv.attr("data-original", resultsArray[i].images.original.url);
                 tempDiv.attr("data-rating", resultsArray[i].rating);
-                tempDiv.attr("data-still", resultsArray[i].images.fixed_height_still.url)
+                tempDiv.attr("data-still", resultsArray[i].images.fixed_height_still.url);
+                tempDiv.attr("data-rating", resultsArray[i].rating);
                 tempDiv.addClass("mr-2 mb-2 rounded shadow border border-dark gif");
                 $("#gif-view").append(tempDiv);
             }
           })
     }
     
+    ///////////////////////
+    // Styling functions //
+    ///////////////////////
+
+    // on-click of page, close collapse window
+    $("#content").on("click", function(){   
+        $('#collapseButton').collapse("hide");
+        $('#collapseMusic').collapse("hide");
+    })
+
+    // clear the current gifs
+    $("#clearBtn").on("click", function() {
+        $("#gif-view").empty();
+    })
+
+    // Clicking title, clears gifs
+    $("h1").on("click", function() {
+        $("#gif-view").empty();
+    })
+
     // buttons open on hover
     $(".collapseButtonMain").hover(
         function() {
@@ -140,10 +146,8 @@ $(document).ready(function() {
     // changes music on click
     $("#music-view").on("click", ".musicBtn", function(){   
         event.preventDefault();
-        console.log($(this));
         $("#music").empty();
         $("#music").append($(this).val());
-        
         // change color and active states of music icons
         for (var i=1; i < 4; i++) {
             $("#mbtn"+i).attr("class", "musicBtn btn btn-dark hvr-grow");
@@ -152,26 +156,9 @@ $(document).ready(function() {
                 $("#icon"+i).attr("class", "fas fa-play-circle fa-2x text-info");
             }  
         }
-
         $(this).addClass("active");
-
     })
-
-    function changeMusic() {
-        var musicList = [
-            {html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/pBAw6DhIZoA?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-            name:  "LoFi / ChillHop - UnsignedMusicz"},
-            {html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/ytJb-xDl69U?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-            name: "LoFi Hip-Hop - ChilledCow"},
-            {html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/LsBrT6vbQa8?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-            name: "LoFi Hip-Hop - Chillhop Music"}
-        ]
-    }
-
-
-
 
 generateButtons();
 $('#collapseButton').collapse("show");
-
 });
