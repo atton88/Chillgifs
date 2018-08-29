@@ -75,7 +75,7 @@ $(document).ready(function() {
     function generateGifs(str) {
 
         var apiKey = "7WGHnvkB9WUox4GqyHbzvKyWt3EtvFbL";
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=api_key=dc6zaTOxFJmzC&limit=10&api_key=" + apiKey + "&q=" + str + " cinemagraph";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=api_key=dc6zaTOxFJmzC&limit=100&api_key=" + apiKey + "&q=" + str + " cinemagraph";
 
         // for remembering active search
 
